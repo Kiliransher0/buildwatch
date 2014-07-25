@@ -21,10 +21,12 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.Builder;
+import android.support.v4.app.NotificationCompat.WearableExtender;
 import android.util.Log;
 
 import com.crowflying.buildwatch.ConfigurationActivity;
@@ -187,10 +189,22 @@ public class BuildWatchExtensionService extends ExtensionService {
 				MainActivity.class);
 		showMessage.putExtra(getString(R.string.extra_message), message);
 
+        // Construct message card for Android Wear
+        NotificationCompat.BigTextStyle bigStyle = new NotificationCompat.BigTextStyle();
+        bigStyle.bigText(message);
+
+        String projectName = message.split("Project ")[1].split(" build")[0];
+
 		Builder builder = new NotificationCompat.Builder(
 				getApplicationContext())
 				.setSmallIcon(R.drawable.ic_buildwatch)
-				.setContentTitle(getString(R.string.new_message_from_jenkins))
+                .setStyle(bigStyle)
+                .setLargeIcon(BitmapFactory.decodeResource(
+                        getResources(),
+                        message.contains("SUCCESS") ?
+                                R.drawable.jenkins_logo : R.drawable.bg_build_failed)
+                )
+				.setContentTitle(projectName + " build finished")
 				.setWhen(System.currentTimeMillis())
 				.setAutoCancel(true)
 				.addAction(
