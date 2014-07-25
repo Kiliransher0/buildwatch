@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/buildWatch/buildWatch.iml" filepath="$PROJECT_DIR$/buildWatch/buildWatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/buildwatch.iml" filepath="$PROJECT_DIR$/buildwatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smartExtensionAPI/smartExtensionAPI.iml" filepath="$PROJECT_DIR$/smartExtensionAPI/smartExtensionAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smartExtensionUtils/smartExtensionUtils.iml" filepath="$PROJECT_DIR$/smartExtensionUtils/smartExtensionUtils.iml" />
+    </modules>
+  </component>
+</project>
+

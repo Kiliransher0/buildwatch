@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- Configure via barcode -->
+    <PreferenceScreen
+        android:key="scan_qr_code"
+        android:summary="@string/config_via_barcode_summary"
+        android:title="@string/config_via_barcode_title" >
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="server_prefs"
+        android:title="@string/config_server_configuration" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="preferences://server"
+            android:targetClass="com.crowflying.buildwatch.ConfigurationActivity"
+            android:targetPackage="com.crowflying.buildwatch" />
+    </PreferenceScreen>
+
+    <Preference
+        android:key="forget_settings"
+        android:title="@string/config_forget_settings" />
+    <Preference
+        android:key="launch_website"
+        android:summary="@string/config_launch_website_summary"
+        android:title="@string/config_launch_website" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="analytics_opt_out"
+        android:summary="@string/config_analytics_opt_out_summary"
+        android:title="@string/config_analytics_opt_out" />
+
+</PreferenceScreen>

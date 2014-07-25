@@ -1,0 +1,59 @@
+<resources>
+
+    <string name="app_name">BuildWatch</string>
+    <string name="configuration_text">Configuration</string>
+    <string name="jenkins">Jenkins</string>
+    <string name="new_message_from_jenkins">New message from Jenkins</string>
+
+    <!-- GCM -->
+    <string name="fmt_gcm_error">Error obtaining a GCM token: %1$s.</string>
+    <string name="new_token">Got new GCM token</string>
+    <string name="fmt_unregistering_failed">Unregistering from jenkins failed: %1$s.</string>
+    <string name="fmt_registering_failed">Registering token in jenkins failed: %1$s.</string>
+    <string name="fmt_registering_success">Successfully registered token with jenkins.</string>
+    <string name="unsupported_device_c2dm">This device can not use Google Cloud Messaging. You need the Google APIs for that. Sorry.</string>
+
+    <!-- Configuration -->
+    <string name="menu_request_new_token">Request new GCM token</string>
+    <string name="config_via_barcode_summary">Scan the QR Code right from your jenkins screen to set this up</string>
+    <string name="barcode_scanner_not_installed_message">Barcode Scanning requires Zxing Barcode Scanner. Do you want to install it now from the market?</string>
+    <string name="config_via_barcode_title">Auto setup</string>
+    <string name="config_forget_settings">Forget Configuration</string>
+    <string name="config_launch_website">Installation Instructions</string>
+    <string name="config_launch_website_summary">Launch website with installation instructions</string>
+    <string name="config_launch_website_url">http://www.buildwatch.org/setup.html?utm_source=app&amp;utm_medium=settings</string>
+    <string name="config_general">General Settings</string>
+    <string name="config_server_configuration">Server Configuration</string>
+    <string name="config_jenkins_configuration">Jenkins Configuration</string>
+    <string name="config_jenkins_username">Username</string>
+    <string name="config_jenkins_username_summary">Using \'%1$s\' to login to jenkins.</string>
+    <string name="config_jenkins_token">Jenkins API Token</string>
+    <string name="config_jenkins_token_summary">API Token: %1$s</string>
+    <string name="config_jenkins_base_url">Base URL</string>
+    <string name="config_jenkins_base_url_summary">Connecting to Jenkins @ %1$s.</string>
+    <string name="config_open_in_browser">Open messages in browser.</string>
+    <string name="config_open_in_browser_summary">Choose this if your phone connects to jenkins, disable if not.</string>
+    <string name="config_gcm_configuration">Google Cloud Messaging Configuration</string>
+    <string name="config_gcm_token">GCM RegID</string>
+    <string name="config_gcm_token_summary">GCM token: %1$s</string>
+    <string name="config_gcm_token_summary_share">Press to share.</string>
+    <string name="config_gcm_sender_id">GCM SenderID</string>
+    <string name="config_gcm_sender_id_summary">Using Project Nr %1$s (find on API Console)</string>
+    <string name="config_analytics_opt_out">Allow Google Analytics</string>
+    <string name="config_analytics_opt_out_summary">Please help us improving this app by allowing anonymous usage statistics.</string>
+    <string name="share_gcm_token_subject">GCM token to put into your jenkins user configuration page.</string>
+    <string name="share_gcm_token_using">Send your GCM token so you can easily copy&amp;paste it into jenkins.</string>
+
+    <!-- SmartExtension -->
+    <string name="show_in_browser">Show on device</string>
+    <string name="open_in_jenkins">Open Jenkins</string>
+    <string name="show_message">Show</string>
+
+    <!-- Intents & Extras -->
+    <string name="action_jenkins">com.crowflying.buildwatch.ACTION_JENKINS</string>
+    <string name="extra_message">com.crowflying.buildwatch.EXTRA_MESSAGE</string>
+    <string name="extra_ifuckedup">com.crowflying.buildwatch.EXTRA_IFUCKEDUP</string>
+    <string name="extra_fullname">com.crowflying.buildwatch.EXTRA_USER</string>
+    <string name="extra_build_url">com.crowflying.buildwatch.EXTRA_BUILD_URL</string>
+
+</resources>
