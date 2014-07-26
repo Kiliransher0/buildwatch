@@ -23,16 +23,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
@@ -40,6 +45,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.crowflying.buildwatch.smartwatch.BuildWatchExtensionService;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.TrackedPreferenceActivity;
@@ -61,6 +67,7 @@ public class ConfigurationActivity extends TrackedPreferenceActivity implements
 	public static final String PREFS_KEY_ANALYTICS_OPTOUT = "analytics_opt_out";
 	public static final String PREFS_KEY_LAUNCH_WEBSITE = "launch_website";
 	public static final String PREFS_KEY_OPEN_IN_BROWSER  ="open_in_browser";
+    public static final String PREFS_SEND_DEBUG_MESSAGE  ="send_debug_message";
 
 	private static final String LOG_TAG = "ConfigurationActivity";
 
@@ -99,6 +106,7 @@ public class ConfigurationActivity extends TrackedPreferenceActivity implements
 		Log.d(LOG_TAG,
 				String.format("Preference %s was clicked...",
 						preference.getKey()));
+
 		// Call the code for autosetup...
 		if (PREFS_AUTOSETUP.equals(preference.getKey())) {
 			Log.i(LOG_TAG, "Calling XZING.");
@@ -144,6 +152,18 @@ public class ConfigurationActivity extends TrackedPreferenceActivity implements
 			}
 			return true;
 		}
+        if(PREFS_SEND_DEBUG_MESSAGE.equals(preference.getKey()))
+        {
+            Intent jenkins = new Intent("com.crowflying.buildwatch.ACTION_JENKINS");
+            String message = "Project buildwatch build SUCCESS: Lorem ipsum dolor sit amet";
+            jenkins.putExtra(getString(R.string.extra_message), message);
+            jenkins.putExtra(getString(R.string.extra_ifuckedup), false);
+            jenkins.putExtra(getString(R.string.extra_build_url), "127.0.0.1");
+            startService(jenkins);
+
+            Toast.makeText(this, "Pressed button", Toast.LENGTH_SHORT).show();
+            return true;
+        }
 		return false;
 	};
 
@@ -193,6 +213,7 @@ public class ConfigurationActivity extends TrackedPreferenceActivity implements
 		setPreferenceClickListener(PREFS_FORGET_SETTINGS);
 		setPreferenceClickListener(PREFS_KEY_LAUNCH_WEBSITE);
 		setPreferenceClickListener(PREFS_KEY_GCM_TOKEN);
+        setPreferenceClickListener(PREFS_SEND_DEBUG_MESSAGE);
 	}
 
 	private void setPreferenceClickListener(String key) {

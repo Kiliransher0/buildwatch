@@ -30,4 +30,8 @@
         android:summary="@string/config_analytics_opt_out_summary"
         android:title="@string/config_analytics_opt_out" />
 
+    <Preference
+        android:title="Create debug notification"
+        android:key="send_debug_message"/>
+
 </PreferenceScreen>
